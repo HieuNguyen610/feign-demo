@@ -7,7 +7,8 @@ public class Employee {
 }
 
 class Manager extends Employee {
-    public void setSalary(int salary) {
+    @Override
+    public void setSalary(double salary) {
         System.out.println("Manager.setSalary(" + salary + ")");
     }
 }

@@ -6,7 +6,7 @@ public class CheckingAccount {
     {
         balance = initialBalance;
     }
-    public boolean withdraw(int amount)
+    public synchronized boolean withdraw(int amount)
     {
         if (amount <= balance)
         {
