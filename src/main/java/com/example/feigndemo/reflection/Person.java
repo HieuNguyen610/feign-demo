@@ -1,12 +1,23 @@
 package com.example.feigndemo.reflection;
 
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.io.Serial;
 import java.io.Serializable;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.TypeVariable;
+import lombok.Data;
+import lombok.ToString;
 
-public class Person implements Cloneable, Serializable {
-    private int id = -1;
-    private String name = "Unknown";
+@Data
+@ToString
+public class Person implements Serializable{
+    @Serial
+    private static final long serialVersionUID = 1L;
+    private int id ;
+    private String name;
 
     public Person() {
 
@@ -40,11 +51,6 @@ public class Person implements Cloneable, Serializable {
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e.getMessage());
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" + "id=" + id + ", name='" + name + '\'' + '}';
     }
 }
 
